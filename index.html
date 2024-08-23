@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abid Al Mahdi - Professional Calculator</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+            overflow: hidden;
+            color: white;
+        }
+        .calculator-container {
+            text-align: center;
+        }
+        .name {
+            font-size: 36px;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            background: linear-gradient(to right,#98eaff, #277feb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+        }
+        .calculator {
+            background: linear-gradient(145deg, #0095ff, #1cb9d5, #8affbb);
+            padding: 10px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(55, 156, 169, 0.4);
+            width: 222px;
+        }
+        .display {
+            background: rgba(0, 255, 251, 0.1);
+            font-size: 40px;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: right;
+            color: #16748b;
+            letter-spacing: 1px;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        .button {
+            background: linear-gradient(to right, #40a5ee, #57b6f9);
+            border: none;
+            border-radius: 10px;
+            font-size: 26px;
+            padding: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            color: rgb(231, 231, 231);
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            font-family: 'Poppins', sans-serif;
+        }
+        .button:hover {
+            background: linear-gradient(to right, #1fa2ff, #12d8fa, #a6ffcb);
+            transform: translateY(-3px);
+        }
+        .button:active {
+            background: linear-gradient(to right, #1a9efd, #35e484);
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <div class="name" id="name">Abid Al Mahdi</div>
+    <div class="calculator" id="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button class="button" onclick="clearDisplay()">C</button>
+            <button class="button" onclick="appendToDisplay('(')">(</button>
+            <button class="button" onclick="appendToDisplay(')')">)</button>
+            <button class="button" onclick="appendToDisplay('/')">/</button>
+            <button class="button" onclick="appendToDisplay('7')">7</button>
+            <button class="button" onclick="appendToDisplay('8')">8</button>
+            <button class="button" onclick="appendToDisplay('9')">9</button>
+            <button class="button" onclick="appendToDisplay('*')">*</button>
+            <button class="button" onclick="appendToDisplay('4')">4</button>
+            <button class="button" onclick="appendToDisplay('5')">5</button>
+            <button class="button" onclick="appendToDisplay('6')">6</button>
+            <button class="button" onclick="appendToDisplay('-')">-</button>
+            <button class="button" onclick="appendToDisplay('1')">1</button>
+            <button class="button" onclick="appendToDisplay('2')">2</button>
+            <button class="button" onclick="appendToDisplay('3')">3</button>
+            <button class="button" onclick="appendToDisplay('+')">+</button>
+            <button class="button" onclick="appendToDisplay('0')">0</button>
+            <button class="button" onclick="appendToDisplay('.')">.</button>
+            <button class="button" onclick="calculateResult()">=</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script>
+    const display = document.getElementById('display');
+    const nameElement = document.getElementById('name');
+    const calculator = document.getElementById('calculator');
+
+    function clearDisplay() {
+        display.textContent = '0';
+    }
+
+    function appendToDisplay(value) {
+        if (display.textContent === '0') {
+            display.textContent = value;
+        } else {
+            display.textContent += value;
+        }
+    }
+
+    function calculateResult() {
+        try {
+            display.textContent = eval(display.textContent);
+            gsap.fromTo(display, {scale: 1.2, opacity: 0.5}, {scale: 1, opacity: 1, duration: 0.5, ease: "power2.out"});
+        } catch (error) {
+            display.textContent = 'Error';
+        }
+    }
+
+    // GSAP Animation for Name
+    gsap.fromTo(nameElement, {opacity: 0, y: -50}, {opacity: 1, y: 0, duration: 1.5, ease: "power3.out"});
+
+    // GSAP Animation for Calculator
+    gsap.fromTo(calculator, {scale: 0}, {scale: 1, duration: 1.5, ease: "elastic.out(1, 0.75)"});
+</script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔢 Abid Al Mahdi - Professional Calculator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            color: white;
+        }
+        .calculator-container {
+            text-align: center;
+        }
+        .name {
+            font-family: 'Roboto', sans-serif; /* New font for your name */
+            font-size: 36px;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #98eaff, #277feb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+        .calculator {
+            background: linear-gradient(145deg, #0095ff, #1cb9d5, #8affbb);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(55, 156, 169, 0.4);
+            width: 320px;
+        }
+        .display {
+            background: rgba(0, 255, 251, 0.1);
+            font-size: 40px;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: right;
+            color: #16748b;
+            letter-spacing: 1px;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        .button {
+            background: linear-gradient(to right, #40a5ee, #57b6f9);
+            border: none;
+            border-radius: 10px;
+            font-size: 26px;
+            padding: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            color: rgb(231, 231, 231);
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .button:hover {
+            background: linear-gradient(to right, #1fa2ff, #12d8fa, #a6ffcb);
+            transform: translateY(-3px);
+        }
+        .button:active {
+            background: linear-gradient(to right, #1a9efd, #35e484);
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <div class="name" id="name">Abid Al Mahdi</div>
+    <div class="calculator" id="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button class="button" onclick="clearDisplay()">C</button>
+            <button class="button" onclick="appendToDisplay('(')">(</button>
+            <button class="button" onclick="appendToDisplay(')')">)</button>
+            <button class="button" onclick="appendToDisplay('/')">/</button>
+            <button class="button" onclick="appendToDisplay('7')">7</button>
+            <button class="button" onclick="appendToDisplay('8')">8</button>
+            <button class="button" onclick="appendToDisplay('9')">9</button>
+            <button class="button" onclick="appendToDisplay('*')">*</button>
+            <button class="button" onclick="appendToDisplay('4')">4</button>
+            <button class="button" onclick="appendToDisplay('5')">5</button>
+            <button class="button" onclick="appendToDisplay('6')">6</button>
+            <button class="button" onclick="appendToDisplay('-')">-</button>
+            <button class="button" onclick="appendToDisplay('1')">1</button>
+            <button class="button" onclick="appendToDisplay('2')">2</button>
+            <button class="button" onclick="appendToDisplay('3')">3</button>
+            <button class="button" onclick="appendToDisplay('+')">+</button>
+            <button class="button" onclick="appendToDisplay('0')">0</button>
+            <button class="button" onclick="appendToDisplay('.')">.</button>
+            <button class="button" onclick="calculateResult()">=</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script>
+    const display = document.getElementById('display');
+    const nameElement = document.getElementById('name');
+    const calculator = document.getElementById('calculator');
+
+    function clearDisplay() {
+        display.textContent = '0';
+    }
+
+    function appendToDisplay(value) {
+        if (display.textContent === '0') {
+            display.textContent = value;
+        } else {
+            display.textContent += value;
+        }
+    }
+
+    function calculateResult() {
+        try {
+            display.textContent = eval(display.textContent);
+            gsap.fromTo(display, {scale: 1.2, opacity: 0.5}, {scale: 1, opacity: 1, duration: 0.5, ease: "power2.out"});
+        } catch (error) {
+            display.textContent = 'Error';
+        }
+    }
+
+    // GSAP Animation for Name with Lifetime Effect
+    gsap.fromTo(nameElement, {opacity: 0, y: -50}, {opacity: 1, y: 0, duration: 1.5, ease: "power3.out"});
+    gsap.to(nameElement, {rotation: 360, scale: 1.1, duration: 5, repeat: -1, yoyo: true, ease: "power1.inOut"});
+
+    // GSAP Animation for Calculator
+    gsap.fromTo(calculator, {scale: 0}, {scale: 1, duration: 1.5, ease: "elastic.out(1, 0.75)"});
+</script>
+
+</body>
+</html>
